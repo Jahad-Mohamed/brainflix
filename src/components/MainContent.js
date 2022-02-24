@@ -1,11 +1,11 @@
 import React from "react";
 import videos from "../data/videos.json";
-import Video from "./video/Video";
+import Video from "../components/video/Video";
 
 export default function MainContent() {
   console.log(videos[0]);
   videos.map((video) => {
-    // console.log(video);
+    console.log(video);
     return <Video key={video.title} video={video} />;
   });
 
@@ -37,11 +37,11 @@ export default function MainContent() {
       </div>
       <aside class="main-content__right">
         {videos.map((video) => {
-          // console.log(video);
+          console.log(video);
           return (
             <Video
-              key={video.title}
               thumbnail={video.image}
+              title={video.title}
               channel={video.channel}
             />
           );

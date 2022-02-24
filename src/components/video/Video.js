@@ -3,10 +3,12 @@ import "./video.scss";
 
 const Video = (props) => {
   return (
-    <div className="card__container">
-      <img className="card__image" src={props.thumbnail} />
-      <h2 className="">{props.title}</h2>
-      <p className="">{props.channel}</p>
+    <div className="video__container">
+      <img className="video__image" src={props.thumbnail} />
+      <div className="video__title-channel-container">
+        <h2 className="card__title">{props.title}</h2>
+        <p className="card__channel">{props.channel}</p>
+      </div>
     </div>
   );
 };
