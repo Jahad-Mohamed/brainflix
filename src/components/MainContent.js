@@ -36,6 +36,7 @@ export default function MainContent() {
         </article>
       </div>
       <aside class="main-content__right">
+        <h2 className="main-content__right-subheader">NEXT VIDEOS</h2>
         {videos.map((video) => {
           console.log(video);
           return (

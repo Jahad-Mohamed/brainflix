@@ -1,25 +1,36 @@
+@use "../../styles/partials/variables" as *;
 .video {
   &__container {
-    width: 60%;
-    height: 20%;
+    width: 95%;
+    height: 15%;
     display: flex;
     flex-direction: row;
+    box-sizing: border-box;
+  }
+  &__title-channel-container {
+    margin-left: 1rem;
   }
 
   &__image {
-    // height: 100%;
-    width: 14vh;
+    margin-top: 1rem;
+    width: 20vw;
     height: 100%;
+    border-radius: 10%;
+    overflow: hidden;
   }
   &__title {
-    height: 50%;
+    font-size: 0.75rem;
+    height: 100%;
     width: 100%;
-
-    color: black;
+    color: $BrainFlix-Black;
+    margin: 0rem;
   }
   &__channel {
-    // height: 100%;
+    color: $BrainFlix-Black;
+    margin: 0rem;
+    height: 100%;
     width: 100%;
-    color: black;
+  }
+  @media only screen and (min-width: 1024px) {
   }
 }
