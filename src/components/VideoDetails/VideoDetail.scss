@@ -1,0 +1,38 @@
+.video {
+
+    &__img {
+        width: 500px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__stats {
+        justify-content: space-between;
+        align-items: center;
+
+        p {
+            margin-left: 10px;
+        }
+
+        .creator__date {
+            align-items: center;
+        }
+    }
+
+}
+
+
+.flex {
+    display: flex;
+}
+
+.row,
+.col-12 {
+    width: 100%;
+}
+
+.col-7 {
+    width: 70%;
+}
