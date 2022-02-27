@@ -12,7 +12,14 @@
     background-color: black;
   }
   &__details {
-    width: 90%;
+    width: 70%;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+
+  &__like-icon {
+    margin-left: 30px;
   }
 
   &__img {
@@ -70,6 +77,10 @@
     justify-content: space-between;
     align-items: center;
     padding: 25px 20px;
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     .avatar {
       margin-top: 30px;
@@ -78,11 +89,16 @@
     button {
       color: white;
       height: 50px;
-      // width: 10vw;
       background: $BrainFlix-Blue;
       border: none;
       border-radius: 5px;
       margin-top: 30px;
+      margin-left: 25px;
+      @media screen and (max-width: 768px) {
+        // width: 10vw;
+        min-width: 200px;
+        width: 100%;
+      }
     }
   }
 
@@ -95,10 +111,16 @@
 
     input {
       height: 50px;
-      width: 20vw;
+      width: 35vw;
       border: 1px solid $BrainFlix-Sliver;
       border-radius: 5px;
       padding: 10px;
+      @media screen and (max-width: 768px) {
+        height: 200px;
+      }
+      @media screen and (max-width: 1024px) {
+        width: 30vw;
+      }
     }
   }
   button {
@@ -129,6 +151,7 @@
   .video {
     &__full-container {
       flex-direction: column;
+      margin: 0%;
     }
     &__input-comment {
       input {
