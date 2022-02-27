@@ -14,15 +14,14 @@ class Video extends Component {
             height="120"
           />
         </div>
-
         <div className="video__title-channel-container">
-          <h2
-            className="video__title"
+          <h3
+            className="card__title"
             onClick={() => this.props.handleVideo(this.props.id)}
           >
             {this.props.title}
-          </h2>
-          <p className="video__channel">{this.props.channel}</p>
+          </h3>
+          <p className="card__channel">{this.props.channel}</p>
         </div>
       </div>
     );

@@ -6,6 +6,7 @@ import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
 import viewIcon from "../../assets/Icons/views.svg";
+import AddCommentIcon from "../../assets/Icons/add_comment.svg";
 import AvatarComponents from "../Avatar";
 
 class VideoDetail extends React.Component {
@@ -39,11 +40,13 @@ class VideoDetail extends React.Component {
   render() {
     return (
       <div className="video row">
-        <div className="video__img col-12">
-          <video controls poster={this.props.video.image}>
-            <source src={this.props.video.video} type="video/mp4" />
-            <source src={this.props.video.video} type="video/webm"></source>
-          </video>
+        <div className="video__block">
+          <div className="video__img flex">
+            <video controls poster={this.props.video.image}>
+              <source src={this.props.video.video} type="video/mp4" />
+              <source src={this.props.video.video} type="video/webm"></source>
+            </video>
+          </div>
         </div>
         <div className="video__full-container flex">
           <div className="video__details col-7">
@@ -77,15 +80,19 @@ class VideoDetail extends React.Component {
               <div className="video__comment-bar flex">
                 <AvatarComponents />
                 <div className="video__input-comment">
-                  <p>Join the Conversation</p>
+                  <p className="">Join the Conversation</p>
                   <input type="text" placeholder="Add a new comment" />
                 </div>
-                <button>COMMENT</button>
+                <button>
+                  <img src={AddCommentIcon} alt="comment-icon" />
+                  COMMENT
+                </button>
               </div>
               <Comment comments={this.props.video.comments} />
             </div>
           </div>
-          <div className="sec-Video col-5">
+          <div className="video__sec-Video col-5">
+            <h2>NEXT VIDEOS</h2>
             {Videos.filter(
               (videoslist) => videoslist.id !== this.props.video.id
             ).map((video) => {

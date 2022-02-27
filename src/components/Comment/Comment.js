@@ -38,7 +38,7 @@ class Comment extends React.Component {
           </div>
           <div className="comment__content">
             <div className="comment__name-timestamp flex">
-              <h2>{comment.name}</h2>
+              <h4>{comment.name}</h4>
               <p>{this.daysAgo(comment.timestamp)}</p>
             </div>
             {comment.comment}

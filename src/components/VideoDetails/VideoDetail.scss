@@ -3,12 +3,15 @@
 
 .video {
   justify-content: center;
+
   h1 {
     padding-left: 30px;
   }
+
   &__block {
     background-color: black;
   }
+
   &__img {
     width: 80%;
     margin: auto;
@@ -37,9 +40,11 @@
       margin-left: 10px;
     }
   }
+
   &__comments-length {
     padding-left: 30px;
   }
+
   &__views-likes {
     color: $BrainFlix-Sliver;
   }
@@ -70,7 +75,7 @@
     button {
       color: white;
       height: 50px;
-      width: 10vw;
+      // width: 10vw;
       background: $BrainFlix-Blue;
       border: none;
       border-radius: 5px;
@@ -93,6 +98,11 @@
       padding: 10px;
     }
   }
+  button {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+  }
 
   &__sec-Video {
     padding-left: 30px;
@@ -109,10 +119,15 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1279px) {
+@media screen and (max-width: 1024px) {
   .video {
     &__full-container {
       flex-direction: column;
+    }
+    &__input-comment {
+      input {
+        width: 70vw;
+      }
     }
   }
 }
