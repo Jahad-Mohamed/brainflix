@@ -11,6 +11,9 @@
   &__block {
     background-color: black;
   }
+  &__details {
+    width: 90%;
+  }
 
   &__img {
     width: 80%;
@@ -108,6 +111,9 @@
     padding-left: 30px;
     border-left: 1px solid $BrainFlix-Sliver;
   }
+  &__next-title {
+    color: $BrainFlix-Sliver;
+  }
 }
 
 .flex {
@@ -128,6 +134,14 @@
       input {
         width: 70vw;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .video {
+    &__full-container {
+      margin: 0px 8%;
     }
   }
 }

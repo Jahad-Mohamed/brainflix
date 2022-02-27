@@ -92,7 +92,7 @@ class VideoDetail extends React.Component {
             </div>
           </div>
           <div className="video__sec-Video col-5">
-            <h2>NEXT VIDEOS</h2>
+            <h4 className="video__next-title">NEXT VIDEOS</h4>
             {Videos.filter(
               (videoslist) => videoslist.id !== this.props.video.id
             ).map((video) => {

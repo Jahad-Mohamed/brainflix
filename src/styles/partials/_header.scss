@@ -26,6 +26,8 @@
     }
   }
   &__container-search-upload-avatar {
+    align-items: center;
+    width: 100%;
     @include medium {
       display: flex;
       width: 50%;
@@ -33,9 +35,11 @@
   }
   &__mobile-search-avatar-container {
     display: flex;
-    margin: 1rem 0rem;
+    margin: 1rem 1rem;
     width: 100%;
+    justify-content: flex-end;
   }
+
   &__mobile-avatar {
     @include medium {
       display: none;
@@ -49,26 +53,31 @@
       margin: 1rem;
     }
   }
-  // &__button-container {
-  //   text-align: center;
+  &__button-container {
+    text-align: center;
 
-  //   padding-right: 0rem;
-  //   @include small {
-  //     width: 98%;
-  //     background-color: $BrainFlix-Blue;
-  //   }
-  //   @include medium {
-  //     width: 50%;
-  //     margin: 1rem;
-  //   }
-  // }
+    padding-right: 0rem;
+    @include small {
+      width: 98%;
+      background-color: $BrainFlix-Blue;
+    }
+    @include medium {
+      width: 50%;
+      margin: 1rem;
+    }
+  }
   &__button {
     background-color: $BrainFlix-Blue;
     color: $BrainFlix-White;
     border: none;
     border-radius: 0.16rem;
-    height: 5vh;
+    display: flex;
+    align-items: center;
+    height: 100%;
     width: 98%;
+    img {
+      margin-right: 20px;
+    }
     @include medium {
       width: 15vw;
       height: 5vh;
@@ -80,6 +89,7 @@
   border: none;
   width: 100%;
   height: 2.25rem;
+  padding: 20px;
   padding-left: 2.5rem;
   background-color: $BrainFlix-Alabaster;
   border: solid 0.1rem $BrainFlix-Mercury;

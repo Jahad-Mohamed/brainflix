@@ -17,13 +17,14 @@ export default function Header() {
             alt="search-bar"
             className="search-bar"
             type="search"
-            placeholder="           Search"
+            placeholder="   Search"
           />
           <div class="header__mobile-avatar">
             <Avatar />
           </div>
         </div>
         <button class="header__button" type="button">
+          <img src={UploadIcon} alt="button" class="header__button-icon" />
           UPLOAD
         </button>
         <div className="header__tablet-avatar">
