@@ -10,6 +10,8 @@
   }
   &__title-channel-container {
     margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
   }
 
   &__image {
@@ -19,13 +21,16 @@
     border-radius: 10%;
     overflow: hidden;
     aspect-ratio: 16/9;
+    object-fit: cover;
   }
   &__title {
-    font-size: 0.75rem;
+    font-size: 1.5rem;
     height: 100%;
     width: 100%;
+    max-width: 400px;
     color: $BrainFlix-Black;
-    margin: 0rem;
+    margin-top: 0.938rem;
+    overflow: hidden;
   }
   &__channel {
     color: $BrainFlix-Black;

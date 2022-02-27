@@ -1,38 +1,32 @@
 .video {
+  &__main-image {
+    width: 500px;
+    z-index: 1000;
+  }
 
-    &__img {
-        width: 500px;
+  &__stats {
+    justify-content: space-between;
+    align-items: center;
 
-        img {
-            width: 100%;
-        }
+    p {
+      margin-left: 10px;
     }
 
-    &__stats {
-        justify-content: space-between;
-        align-items: center;
-
-        p {
-            margin-left: 10px;
-        }
-
-        .creator__date {
-            align-items: center;
-        }
+    .creator__date {
+      align-items: center;
     }
-
+  }
 }
 
-
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .row,
 .col-12 {
-    width: 100%;
+  width: 100%;
 }
 
 .col-7 {
-    width: 70%;
+  width: 70%;
 }

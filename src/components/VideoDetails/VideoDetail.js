@@ -8,8 +8,12 @@ class VideoDetail extends React.Component {
           <video controls>
             <source src={this.props.video.video} type="video/mp4" />
             <source src={this.props.video.video} type="video/webm"></source>
+            <img
+              src={this.props.video.image}
+              class="vide__main-image "
+              alt="main-video"
+            />
           </video>
-          <img src={this.props.video.image} alt="" />
         </div>
         <div className="video__details col-7">
           <h1>{this.props.video.title}</h1>
