@@ -1,4 +1,5 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .video {
   justify-content: center;
@@ -108,6 +109,10 @@
   width: 100%;
 }
 
-// .col-7 {
-//   // width: 70%;
-// }
+@media screen and (max-width: 1279px) {
+  .video {
+    &__full-container {
+      flex-direction: column;
+    }
+  }
+}

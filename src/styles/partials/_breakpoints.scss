@@ -18,10 +18,3 @@
     @content;
   }
 }
-
-/* media query for high pixel density desktops */
-@mixin huge {
-  @media only screen and (min-width: 1440px) {
-    @content;
-  }
-}

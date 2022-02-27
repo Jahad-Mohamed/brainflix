@@ -45,7 +45,7 @@ class VideoDetail extends React.Component {
             <source src={this.props.video.video} type="video/webm"></source>
           </video>
         </div>
-        <div className="flex">
+        <div className="video__full-container flex">
           <div className="video__details col-7">
             <h1>{this.props.video.title}</h1>
             <div className="video__stats flex">

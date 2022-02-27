@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+
     padding: 10px;
   }
   &__section {
@@ -43,54 +44,5 @@
     font-size: 0.813rem;
     line-height: 1.125rem;
     font-weight: 700;
-  }
-}
-
-@include medium {
-  .main-content {
-    &__product {
-      height: 100px;
-      flex: unset;
-    }
-    &__image-gallery {
-      flex-direction: row;
-      align-items: center;
-      justify-content: center;
-    }
-    &__image {
-      height: 150px;
-    }
-    &__blogpost {
-      width: 90%;
-      align-items: center;
-    }
-  }
-}
-
-@include large {
-  .main-content {
-    flex-direction: row;
-    &__left {
-      flex: 50%;
-      padding: 20px;
-    }
-    &__right {
-      flex: 10%;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-    }
-  }
-}
-
-@include huge {
-  .main-content {
-    height: 80vh;
-    &__product {
-      flex: 0.33;
-      height: unset;
-      margin: 20px;
-    }
   }
 }
