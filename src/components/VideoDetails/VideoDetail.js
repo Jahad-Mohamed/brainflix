@@ -4,6 +4,8 @@ import VideoList from "../../data/video-details.json";
 import Videos from "../../data/videos.json";
 import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
+import likeIcon from "../../assets/Icons/likes.svg";
+import viewIcon from "../../assets/Icons/views.svg";
 import AvatarComponents from "../Avatar";
 
 class VideoDetail extends React.Component {
@@ -47,28 +49,35 @@ class VideoDetail extends React.Component {
           <div className="video__details col-7">
             <h1>{this.props.video.title}</h1>
             <div className="video__stats flex">
-              <div className="creator__date flex">
+              <div className="video__creator-date flex">
                 <h2>By {this.props.video.channel}</h2>
-                <p className="date">
+                <p className="video__date">
                   {this.daysAgo(this.props.video.timestamp)}
                 </p>
               </div>
-              <div className="views__likes flex">
-                <p>{this.props.video.views}</p>
-                <p>{this.props.video.likes}</p>
+              <div className="video__views-likes flex">
+                <div className="video__views-icon flex">
+                  <img src={viewIcon} alt="like-icon" />
+
+                  <p>{this.props.video.views}</p>
+                </div>
+                <div className="video__like-icon flex">
+                  <img src={likeIcon} alt="like-icon" />
+                  <p>{this.props.video.likes}</p>
+                </div>
               </div>
             </div>
             <div className="video__description">
               {this.props.video.description}
             </div>
             <div className="video__comments">
-              <div className="comments-length">
+              <div className="video__comments-length">
                 <h3>{`${VideoList[0].comments.length} Comments`}</h3>
               </div>
-              <div className="comment-bar flex">
+              <div className="video__comment-bar flex">
                 <AvatarComponents />
-                <div className="input-comment">
-                  <p className="">Join the Conversation</p>
+                <div className="video__input-comment">
+                  <p>Join the Conversation</p>
                   <input type="text" placeholder="Add a new comment" />
                 </div>
                 <button>COMMENT</button>

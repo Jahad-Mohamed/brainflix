@@ -5,11 +5,16 @@ class Video extends Component {
   render() {
     return (
       <div className="video__container" key={this.props.id}>
-        <img
-          className="video__image"
-          src={this.props.thumbnail}
-          alt={this.props.title}
-        />
+        <div className="img-container">
+          <img
+            className="video__image"
+            src={this.props.thumbnail}
+            alt={this.props.title}
+            width="170"
+            height="120"
+          />
+        </div>
+
         <div className="video__title-channel-container">
           <h2
             className="video__title"

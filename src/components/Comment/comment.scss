@@ -1,0 +1,24 @@
+.row {
+  width: 100%;
+}
+.comment {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-top: 1px solid $BrainFlix-Sliver;
+  p {
+    margin: 3px;
+    color: $BrainFlix-Sliver;
+  }
+
+  &__content {
+    // width: 70%;
+    h2 {
+      margin-top: 0%;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__name-timestamp {
+    justify-content: space-between;
+  }
+}

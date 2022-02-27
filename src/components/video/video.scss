@@ -7,36 +7,38 @@
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    .img-container {
+      width: 170px;
+      height: auto;
+    }
   }
+
   &__title-channel-container {
     margin-left: 1rem;
-    display: flex;
-    flex-direction: column;
   }
 
   &__image {
     margin-top: 1rem;
-    width: 20vw;
-    height: 100%;
+
     border-radius: 10%;
     overflow: hidden;
-    aspect-ratio: 16/9;
-    object-fit: cover;
   }
+
   &__title {
-    font-size: 1.5rem;
+    font-size: 0.75rem;
     height: 100%;
     width: 100%;
-    max-width: 400px;
-    color: $BrainFlix-Black;
-    margin-top: 0.938rem;
+    // color: $BrainFlix-Black;
+    margin: 0rem;
   }
+
   &__channel {
-    color: $BrainFlix-Black;
+    // color: $BrainFlix-Black;
     margin: 0rem;
     height: 100%;
     width: 100%;
   }
+
   @media only screen and (min-width: 1024px) {
   }
 }
