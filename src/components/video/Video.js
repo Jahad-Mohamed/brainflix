@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import "./video.scss";
 
-class Video extends Comment {
+class Video extends Component {
   render() {
     return (
       <div className="video__container" key={this.props.id}>
@@ -17,7 +17,7 @@ class Video extends Comment {
           >
             {this.props.title}
           </h2>
-          <p className="video__channel">{props.channel}</p>
+          <p className="video__channel">{this.props.channel}</p>
         </div>
       </div>
     );

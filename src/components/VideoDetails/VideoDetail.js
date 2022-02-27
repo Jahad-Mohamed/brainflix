@@ -1,5 +1,11 @@
 import React from "react";
+import Video from "../video/Video";
+import VideoList from "../../data/video-details.json";
+import Videos from "../../data/videos.json";
 import "./VideoDetail.scss";
+import Comment from "../Comment/Comment";
+import AvatarComponents from "../Avatar";
+
 class VideoDetail extends React.Component {
   daysAgo(rawData) {
     let difference = new Date().getTime() - new Date(rawData).getTime();
@@ -11,7 +17,7 @@ class VideoDetail extends React.Component {
     let years = Math.round(days / 365);
     let message = "";
 
-    if (minute <= 1) {
+    if (minutes <= 1) {
       message = `Just now`;
     } else if (minutes > 1 && minutes <= 60) {
       message = `${minutes} minutes ago`;
@@ -32,29 +38,59 @@ class VideoDetail extends React.Component {
     return (
       <div className="video row">
         <div className="video__img col-12">
-          <video controls>
+          <video controls poster={this.props.video.image}>
             <source src={this.props.video.video} type="video/mp4" />
             <source src={this.props.video.video} type="video/webm"></source>
-            <img
-              src={this.props.video.image}
-              class="vide__main-image "
-              alt="main-video"
-            />
           </video>
         </div>
-        <div className="video__details col-7">
-          <h1>{this.props.video.title}</h1>
-          <div className="video__stats flex">
-            <div className="creator__date flex">
-              <h2>By {this.props.video.channel}</h2>
-              <p className="date">{this.props.video.timestamp}</p>
+        <div className="flex">
+          <div className="video__details col-7">
+            <h1>{this.props.video.title}</h1>
+            <div className="video__stats flex">
+              <div className="creator__date flex">
+                <h2>By {this.props.video.channel}</h2>
+                <p className="date">
+                  {this.daysAgo(this.props.video.timestamp)}
+                </p>
+              </div>
+              <div className="views__likes flex">
+                <p>{this.props.video.views}</p>
+                <p>{this.props.video.likes}</p>
+              </div>
             </div>
-            <div className="views__likes flex">
-              <p>{this.props.video.views}</p>
-              <p>{this.props.video.likes}</p>
+            <div className="video__description">
+              {this.props.video.description}
+            </div>
+            <div className="video__comments">
+              <div className="comments-length">
+                <h3>{`${VideoList[0].comments.length} Comments`}</h3>
+              </div>
+              <div className="comment-bar flex">
+                <AvatarComponents />
+                <div className="input-comment">
+                  <p className="">Join the Conversation</p>
+                  <input type="text" placeholder="Add a new comment" />
+                </div>
+                <button>COMMENT</button>
+              </div>
+              <Comment comments={this.props.video.comments} />
             </div>
           </div>
-          <p className="video__description">{this.props.video.description}</p>
+          <div className="sec-Video col-5">
+            {Videos.filter(
+              (videoslist) => videoslist.id !== this.props.video.id
+            ).map((video) => {
+              return (
+                <Video
+                  id={video.id}
+                  thumbnail={video.image}
+                  title={video.title}
+                  channel={video.channel}
+                  handleVideo={this.props.handleVideo}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     );
