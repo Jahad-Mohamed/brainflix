@@ -46,11 +46,9 @@
     }
   }
   &__tablet-avatar {
+    margin-top: 0.688rem;
     @include small {
       display: none;
-    }
-    @include medium {
-      margin: 1rem;
     }
   }
   &__button-container {
@@ -73,36 +71,15 @@
     border-radius: 0.16rem;
     display: flex;
     justify-content: center;
-    // height: 100%;
     width: 98%;
-    height: 50px;
+    height: 2.25rem;
     align-items: center;
-    margin-left: 20px;
-    position: relative;
-    @media screen and (max-width: 1024px) {
-      img {
-        position: absolute;
-        top: 10px;
-        left: 0px;
-      }
-    }
-    @include large {
-      margin-left: 20px;
-      img {
-        position: absolute;
-        top: 10px;
-        left: 0px;
-      }
-    }
-    @media screen and (max-width: 768px) {
-      margin: 0%;
-    }
-
-    @media screen and (min-width: 768px) {
-      width: 150px;
-      width: 15vw;
-      width: 15vw !important ;
-      height: 5vh;
+    background-image: url("../../assets/Icons/upload.svg");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: left;
+    @include medium {
+      margin-left: 1rem;
     }
   }
 }
@@ -111,14 +88,14 @@
   border: none;
   width: 100%;
   height: 2.25rem;
-  padding: 20px;
   padding-left: 2.5rem;
   background-color: $BrainFlix-Alabaster;
   border: solid 0.1rem $BrainFlix-Mercury;
   border-radius: 0.26rem;
   background-image: url("../../assets/Icons/search.svg");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: 20px;
+  background-position: left;
   @include medium {
     width: 20vw;
   }

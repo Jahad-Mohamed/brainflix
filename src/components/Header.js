@@ -24,7 +24,6 @@ export default function Header() {
           </div>
         </div>
         <button class="header__button" type="button">
-          <img src={UploadIcon} alt="button" class="header__button-icon" />
           UPLOAD
         </button>
         <div className="header__tablet-avatar">
