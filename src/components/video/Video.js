@@ -17,7 +17,7 @@ class Video extends Component {
         </div>
         <div className="video__title-channel-container">
           {/* ADDED LINK TO VIDEO */}
-          <Link to={{ pathname: `/video/${this.props.id}` }}>
+          <Link to={{ pathname: `/${this.props.id}` }}>
             <h5
               className="card__title"
               onClick={() => this.props.handleVideo(this.props.id)}

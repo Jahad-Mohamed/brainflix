@@ -22,6 +22,7 @@ class MainContent extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props);
     axios.get(GET_VIDEOS_API_URL()).then((res) => {
       const videos = res.data;
       axios.get(GET_VIDEO_INFO_API_URL(videos[0].id)).then((video) => {

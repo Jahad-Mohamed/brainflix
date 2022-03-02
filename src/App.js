@@ -7,7 +7,10 @@ const App = () => {
   return (
     <>
       <Header />
-      <MainContent />
+      <Switch>
+        <Route path="/" component={MainContent} />
+        <Route path="/:id" component={MainContent} />
+      </Switch>
     </>
   );
 };
