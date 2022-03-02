@@ -75,8 +75,6 @@
 
   &__comment-bar {
     justify-content: space-between;
-    align-items: center;
-    padding: 25px 20px;
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
       justify-content: center;
@@ -116,7 +114,7 @@
       border-radius: 5px;
       padding: 10px;
       @media screen and (max-width: 768px) {
-        height: 200px;
+        height: 9.375rem;
       }
       @media screen and (max-width: 1024px) {
         width: 30vw;
@@ -155,7 +153,7 @@
     }
     &__input-comment {
       input {
-        width: 70vw;
+        width: 85vw;
       }
     }
   }

@@ -1,15 +1,20 @@
 import React from "react";
 import Video from "../video/Video";
 import VideoList from "../../data/video-details.json";
-import Videos from "../../data/videos.json";
 import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
 import viewIcon from "../../assets/Icons/views.svg";
 import AddCommentIcon from "../../assets/Icons/add_comment.svg";
 import AvatarComponents from "../Avatar";
+import axios from "axios";
+import { GET_VIDEO_INFO_API_URL } from "../../api/endpoints";
 
 class VideoDetail extends React.Component {
+  state = {
+    comments: [],
+  };
+
   daysAgo(rawData) {
     let difference = new Date().getTime() - new Date(rawData).getTime();
     let miliseconds = difference;
@@ -34,8 +39,10 @@ class VideoDetail extends React.Component {
     return message;
   }
 
-  handleVideo(id) {
-    console.log(id);
+  componentDidMount() {
+    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((res) => {
+      this.setState({ comments: res.data.comments });
+    });
   }
   render() {
     return (
@@ -88,24 +95,24 @@ class VideoDetail extends React.Component {
                   COMMENT
                 </button>
               </div>
-              <Comment comments={this.props.video.comments} />
+              <Comment comments={this.props.comments} />
             </div>
           </div>
           <div className="video__sec-Video col-5">
             <h4 className="video__next-title">NEXT VIDEOS</h4>
-            {Videos.filter(
-              (videoslist) => videoslist.id !== this.props.video.id
-            ).map((video) => {
-              return (
-                <Video
-                  id={video.id}
-                  thumbnail={video.image}
-                  title={video.title}
-                  channel={video.channel}
-                  handleVideo={this.props.handleVideo}
-                />
-              );
-            })}
+            {this.props.videos
+              .filter((videoslist) => videoslist.id !== this.props.video.id)
+              .map((video) => {
+                return (
+                  <Video
+                    id={video.id}
+                    thumbnail={video.image}
+                    title={video.title}
+                    channel={video.channel}
+                    handleVideo={this.props.handleVideo}
+                  />
+                );
+              })}
           </div>
         </div>
       </div>

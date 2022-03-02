@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./video.scss";
 
 class Video extends Component {
@@ -15,12 +16,15 @@ class Video extends Component {
           />
         </div>
         <div className="video__title-channel-container">
-          <h5
-            className="card__title"
-            onClick={() => this.props.handleVideo(this.props.id)}
-          >
-            {this.props.title}
-          </h5>
+          {/* ADDED LINK TO VIDEO */}
+          <Link to={{ pathname: `/video/${this.props.id}` }}>
+            <h5
+              className="card__title"
+              onClick={() => this.props.handleVideo(this.props.id)}
+            >
+              {this.props.title}
+            </h5>
+          </Link>
           <p className="card__channel">{this.props.channel}</p>
         </div>
       </div>

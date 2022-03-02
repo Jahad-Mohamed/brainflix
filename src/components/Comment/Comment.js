@@ -32,7 +32,7 @@ class Comment extends React.Component {
     // this.daysAgo
     let commentComponent = comments.map((comment, index) => {
       return (
-        <div className="comment row flex" key="1">
+        <div className="comment row flex" key={index}>
           <div className="comment__avatar">
             <AvatarComponents />
           </div>

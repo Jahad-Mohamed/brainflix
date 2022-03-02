@@ -1,7 +1,6 @@
 import React from "react";
 import LogoImg from "../assets/logo/BrainFlix-logo.svg";
 import Avatar from "../components/Avatar";
-import UploadIcon from "../assets/Icons/upload.svg";
 import SearchIcon from "../assets/Icons/search.svg";
 
 export default function Header() {
@@ -19,11 +18,11 @@ export default function Header() {
             type="search"
             placeholder="   Search"
           />
-          <div class="header__mobile-avatar">
+          <div className="header__mobile-avatar">
             <Avatar />
           </div>
         </div>
-        <button class="header__button" type="button">
+        <button className="header__button" type="button">
           UPLOAD
         </button>
         <div className="header__tablet-avatar">
