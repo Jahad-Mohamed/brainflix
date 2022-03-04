@@ -1,6 +1,6 @@
 import React from "react";
 import LogoImg from "../assets/logo/BrainFlix-logo.svg";
-import Avatar from "../components/Avatar";
+import Avatar from "../components/avatar/Avatar";
 import SearchIcon from "../assets/Icons/search.svg";
 
 export default function Header() {

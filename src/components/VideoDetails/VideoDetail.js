@@ -1,12 +1,12 @@
 import React from "react";
 import Video from "../video/Video";
-import VideoList from "../../data/video-details.json";
+// import VideoList from "../../data/video-details.json";
 import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
 import viewIcon from "../../assets/Icons/views.svg";
 import AddCommentIcon from "../../assets/Icons/add_comment.svg";
-import AvatarComponents from "../Avatar";
+import Avatar from "../avatar/Avatar";
 import axios from "axios";
 import { GET_VIDEO_INFO_API_URL } from "../../api/endpoints";
 
@@ -40,8 +40,8 @@ class VideoDetail extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((res) => {
-      this.setState({ comments: res.data.comments });
+    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((response) => {
+      this.setState({ comments: response.data.comments });
     });
   }
   render() {
@@ -82,10 +82,10 @@ class VideoDetail extends React.Component {
             </div>
             <div className="video__comments">
               <div className="video__comments-length">
-                <h3>{`${VideoList[0].comments.length} Comments`}</h3>
+                <h3>{`${this.props.comments.length} Comments`}</h3>
               </div>
               <div className="video__comment-bar flex">
-                <AvatarComponents />
+                <Avatar />
                 <div className="video__input-comment">
                   <p className="">Join the Conversation</p>
                   <input type="text" placeholder="Add a new comment" />

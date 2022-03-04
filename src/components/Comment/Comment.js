@@ -1,5 +1,5 @@
 import React from "react";
-import AvatarComponents from "../Avatar";
+import AvatarComponents from "../avatar/Avatar";
 import "./comment.scss";
 class Comment extends React.Component {
   daysAgo(rawData) {
