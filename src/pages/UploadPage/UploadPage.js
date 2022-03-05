@@ -1,4 +1,5 @@
 import React from "react";
+import Thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 
 export default function UploadPage() {
   return (
@@ -7,11 +8,12 @@ export default function UploadPage() {
       <form className="Upload__form" /*onSubmit={handleSubmit}*/>
         <div className="Upload__form-section">
           <label className="Upload__subtitle">UPLOAD THUMBNAIL</label>
-          <input type="text" name="title" />
+          <img src={Thumbnail} alt="thumbnail" className="Upload__thumbnail" />
         </div>
         <div className="Upload__form-section">
           <label className="Upload__subtitle">TITLE YOUR VIDEO</label>
           <input
+            className="Upload__input-title"
             type="text"
             name="title"
             placeholder="Add a title to your video"
@@ -20,15 +22,20 @@ export default function UploadPage() {
         <div className="Upload__form-section">
           <label className="Upload__subtitle">ADD A VIDEO DESCRIPTION</label>
           <input
+            className="Upload__input-description"
             type="text"
             name="description"
             placeholder="Add a description to your video"
           />
         </div>
-
-        <button className="Upload__publish-button" type="submit">
-          PUBLISH
-        </button>
+        <div className="Upload__button-container">
+          <button className="Upload__publish-button" type="submit">
+            PUBLISH
+          </button>
+          <button className="Upload__cancel-button" type="submit">
+            CANCEL
+          </button>
+        </div>
       </form>
     </>
   );
