@@ -27,7 +27,7 @@ class MainContent extends Component {
     this.fetchData();
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
       console.log("component did update");
       console.log(prevProps.match.params.id);

@@ -1,0 +1,38 @@
+@use "../../styles/partials/variables" as *;
+
+.Upload {
+  &__main-title {
+    margin: 2rem 2rem 0rem 2rem;
+    padding: 1rem 0rem 3rem 0rem;
+    border-bottom: 1px solid #afafaf;
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 2rem;
+    padding: 1rem 0rem;
+  }
+  &__subtitle {
+    margin: 1rem 0rem;
+  }
+  &__form-section {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0rem;
+  }
+  &__publish-button {
+    background-color: $BrainFlix-Blue;
+    color: $BrainFlix-White;
+    border: none;
+    border-radius: 0.26rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 2.25rem;
+    align-items: center;
+    background-image: url("../../assets/Icons/upload.svg");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: left;
+  }
+}

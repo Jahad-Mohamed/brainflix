@@ -9,6 +9,7 @@
   flex-direction: column;
   width: 100%;
   padding: 1rem 0rem 1rem 1rem;
+  border-bottom: 1px solid #afafaf;
   @include medium {
     flex-direction: row;
     width: 100vw;
@@ -68,7 +69,7 @@
     background-color: $BrainFlix-Blue;
     color: $BrainFlix-White;
     border: none;
-    border-radius: 0.16rem;
+    border-radius: 0.26rem;
     display: flex;
     justify-content: center;
     width: 98%;
