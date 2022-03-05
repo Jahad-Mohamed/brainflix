@@ -67,6 +67,10 @@
     color: $BrainFlix-Sliver;
   }
 
+  &__comments-para {
+    margin: 0;
+  }
+
   &__comments {
     p {
       margin: 0;
@@ -74,6 +78,8 @@
   }
 
   &__comment-bar {
+    display: flex;
+    margin-bottom: 30px;
     justify-content: space-between;
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
@@ -99,7 +105,10 @@
       }
     }
   }
-
+  &__avatar-input {
+    display: flex;
+    align-items: center;
+  }
   &__input-comment {
     p {
       font-weight: bold;

@@ -9,9 +9,8 @@ class MainContent extends Component {
     VideosList: [],
     comments: [],
   };
-
-  componentDidMount() {
-    axios.get(GET_VIDEOS_API_URL()).then((response) => {
+  async fetchData() {
+    await axios.get(GET_VIDEOS_API_URL()).then((response) => {
       const videos = response.data;
       axios.get(GET_VIDEO_INFO_API_URL(videos[0].id)).then((video) => {
         this.setState({
@@ -22,28 +21,31 @@ class MainContent extends Component {
       });
     });
   }
-  handleVideo = (id) => {
-    let newVideo = this.state.VideosList.find((value) => value.id === id);
-    axios.get(GET_VIDEO_INFO_API_URL(id)).then((response) => {
-      this.setState({
-        MainVideo: response.data,
-        comments: response.data.comments,
-      });
-    });
-  };
 
-  // componentDidUpdate() {
-  //   axios.get(GET_VIDEOS_API_URL()).then((response) => {
-  //     const videos = response.data;
-  //     axios.get(GET_VIDEO_INFO_API_URL(videos[0].id)).then((video) => {
-  //       this.setState({
-  //         MainVideo: video.data,
-  //         VideosList: videos,
-  //         comments: video.data.comments,
-  //       });
-  //     });
-  //   });
-  // }
+  componentDidMount() {
+    console.log("component Did mount");
+    this.fetchData();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      console.log("component did update");
+      console.log(prevProps.match.params.id);
+      console.log(this.props.match.params.id);
+      axios.get(GET_VIDEOS_API_URL()).then((response) => {
+        const videos = response.data;
+        axios
+          .get(GET_VIDEO_INFO_API_URL(this.props.match.params.id))
+          .then((video) => {
+            this.setState({
+              MainVideo: video.data,
+              VideosList: videos,
+              comments: video.data.comments,
+            });
+          });
+      });
+    }
+  }
 
   render() {
     return (

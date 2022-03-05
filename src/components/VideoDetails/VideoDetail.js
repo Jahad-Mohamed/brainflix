@@ -84,11 +84,13 @@ class VideoDetail extends React.Component {
               <div className="video__comments-length">
                 <h3>{`${this.props.comments.length} Comments`}</h3>
               </div>
-              <div className="video__comment-bar flex">
-                <Avatar />
-                <div className="video__input-comment">
-                  <p className="">Join the Conversation</p>
-                  <input type="text" placeholder="Add a new comment" />
+              <div className="video__comment-bar">
+                <div className="video__avatar-input">
+                  <Avatar />
+                  <div classNamevideo__comments-para="video__input-comment">
+                    <p className="">Join the Conversation</p>
+                    <input type="text" placeholder="Add a new comment" />
+                  </div>
                 </div>
                 <button>
                   <img src={AddCommentIcon} alt="comment-icon" />

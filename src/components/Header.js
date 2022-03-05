@@ -2,11 +2,19 @@ import React from "react";
 import LogoImg from "../assets/logo/BrainFlix-logo.svg";
 import Avatar from "../components/avatar/Avatar";
 import SearchIcon from "../assets/Icons/search.svg";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <header className="header">
-      <img src={LogoImg} alt="brainflix-logo" className="header__logo"></img>
+      <Link to="/">
+        <img
+          src={LogoImg}
+          alt="b
+      brainflix-logo"
+          className="header__logo"
+        ></img>
+      </Link>
       <section className="header__forspace"></section>
       <div className="header__container-search-upload-avatar">
         <div className="header__mobile-search-avatar-container">
@@ -22,9 +30,11 @@ export default function Header() {
             <Avatar />
           </div>
         </div>
-        <button className="header__button" type="button">
-          UPLOAD
-        </button>
+        <Link to="/upload">
+          <button className="header__button" type="button">
+            UPLOAD
+          </button>
+        </Link>
         <div className="header__tablet-avatar">
           <Avatar />
         </div>
