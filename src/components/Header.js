@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <header className="header">
-      <Link to="/">
+      <Link to="/" className="header__logo-link">
         <img
           src={LogoImg}
           alt="b
@@ -24,13 +24,13 @@ export default function Header() {
             alt="search-bar"
             className="search-bar"
             type="search"
-            placeholder="   Search"
+            placeholder="  Search"
           />
           <div className="header__mobile-avatar">
             <Avatar />
           </div>
         </div>
-        <Link to="/upload">
+        <Link className="header__upload-link" to="/upload">
           <button className="header__button" type="button">
             UPLOAD
           </button>

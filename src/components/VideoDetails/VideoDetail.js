@@ -1,6 +1,5 @@
 import React from "react";
 import Video from "../video/Video";
-// import VideoList from "../../data/video-details.json";
 import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
