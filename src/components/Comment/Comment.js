@@ -34,7 +34,7 @@ class Comment extends React.Component {
       return (
         <div className="comment row flex" key={index}>
           <div className="comment__avatar">
-            <AvatarComponents />
+            <span className="comment__avatar-circle"></span>
           </div>
           <div className="comment__content">
             <div className="comment__name-timestamp flex">

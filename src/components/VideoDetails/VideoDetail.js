@@ -45,26 +45,26 @@ class VideoDetail extends React.Component {
   }
   render() {
     return (
-      <div className="video row">
+      <div className="video">
         <div className="video__block">
-          <div className="video__img flex">
+          <div className="video__img">
             <video controls poster={this.props.video.image}>
               <source src={this.props.video.video} type="video/mp4" />
               <source src={this.props.video.video} type="video/webm"></source>
             </video>
           </div>
         </div>
-        <div className="video__full-container flex">
-          <div className="video__details col-7">
+        <div className="video__full-container">
+          <div className="video__details">
             <h1>{this.props.video.title}</h1>
-            <div className="video__stats flex">
-              <div className="video__creator-date flex">
+            <div className="video__stats">
+              <div className="video__creator-date">
                 <h2>By {this.props.video.channel}</h2>
                 <p className="video__date">
                   {this.daysAgo(this.props.video.timestamp)}
                 </p>
               </div>
-              <div className="video__views-likes flex">
+              <div className="video__views-likes">
                 <div className="video__views-icon flex">
                   <img src={viewIcon} alt="like-icon" />
 
@@ -86,13 +86,19 @@ class VideoDetail extends React.Component {
               <div className="video__comment-bar">
                 <div className="video__avatar-input">
                   <Avatar />
-                  <div classNamevideo__comments-para="video__input-comment">
-                    <p className="">Join the Conversation</p>
-                    <input type="text" placeholder="Add a new comment" />
+                  <div className="video__input-comment">
+                    <p className="video__comments-para">
+                      Join the Conversation
+                    </p>
+                    <input
+                      type="text"
+                      className="video__input-field"
+                      placeholder="Add a new comment"
+                    />
                   </div>
                 </div>
-                <button>
-                  <img src={AddCommentIcon} alt="comment-icon" />
+                <button className="video__comment-btn">
+                  {/* <img src={AddCommentIcon} alt="comment-icon" /> */}
                   COMMENT
                 </button>
               </div>

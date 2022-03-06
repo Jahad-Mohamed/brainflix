@@ -1,5 +1,6 @@
 import React from "react";
 import Thumbnail from "../../assets/Images/Upload-video-preview.jpg";
+import { Link } from "react-router-dom";
 
 export default function UploadPage() {
   return (
@@ -40,9 +41,15 @@ export default function UploadPage() {
           </div>
         </div>
         <div className="Upload__button-container">
-          <button className="Upload__publish-button" type="submit">
-            PUBLISH
-          </button>
+          <Link to="/">
+            <button
+              className="Upload__publish-button"
+              type="submit"
+              onClick={() => alert("Video Uploaded")}
+            >
+              PUBLISH
+            </button>
+          </Link>
           <button className="Upload__cancel-button" type="submit">
             CANCEL
           </button>
