@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../assets/Images/Mohan-muruge.jpg";
+import Avatar from "../../assets/Images/Mohan-muruge.jpg";
 
 export default function AvatarComponents() {
   return (

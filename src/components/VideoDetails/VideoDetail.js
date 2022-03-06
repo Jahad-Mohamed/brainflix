@@ -1,12 +1,11 @@
 import React from "react";
 import Video from "../video/Video";
-import VideoList from "../../data/video-details.json";
 import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
 import viewIcon from "../../assets/Icons/views.svg";
 import AddCommentIcon from "../../assets/Icons/add_comment.svg";
-import AvatarComponents from "../Avatar";
+import Avatar from "../avatar/Avatar";
 import axios from "axios";
 import { GET_VIDEO_INFO_API_URL } from "../../api/endpoints";
 
@@ -40,32 +39,32 @@ class VideoDetail extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((res) => {
-      this.setState({ comments: res.data.comments });
+    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((response) => {
+      this.setState({ comments: response.data.comments });
     });
   }
   render() {
     return (
-      <div className="video row">
+      <div className="video">
         <div className="video__block">
-          <div className="video__img flex">
+          <div className="video__img">
             <video controls poster={this.props.video.image}>
               <source src={this.props.video.video} type="video/mp4" />
               <source src={this.props.video.video} type="video/webm"></source>
             </video>
           </div>
         </div>
-        <div className="video__full-container flex">
-          <div className="video__details col-7">
+        <div className="video__full-container">
+          <div className="video__details">
             <h1>{this.props.video.title}</h1>
-            <div className="video__stats flex">
-              <div className="video__creator-date flex">
+            <div className="video__stats">
+              <div className="video__creator-date">
                 <h2>By {this.props.video.channel}</h2>
                 <p className="video__date">
                   {this.daysAgo(this.props.video.timestamp)}
                 </p>
               </div>
-              <div className="video__views-likes flex">
+              <div className="video__views-likes">
                 <div className="video__views-icon flex">
                   <img src={viewIcon} alt="like-icon" />
 
@@ -82,16 +81,24 @@ class VideoDetail extends React.Component {
             </div>
             <div className="video__comments">
               <div className="video__comments-length">
-                <h3>{`${VideoList[0].comments.length} Comments`}</h3>
+                <h3>{`${this.props.comments.length} Comments`}</h3>
               </div>
-              <div className="video__comment-bar flex">
-                <AvatarComponents />
-                <div className="video__input-comment">
-                  <p className="">Join the Conversation</p>
-                  <input type="text" placeholder="Add a new comment" />
+              <div className="video__comment-bar">
+                <div className="video__avatar-input">
+                  <Avatar />
+                  <div className="video__input-comment">
+                    <p className="video__comments-para">
+                      Join the Conversation
+                    </p>
+                    <input
+                      type="text"
+                      className="video__input-field"
+                      placeholder="Add a new comment"
+                    />
+                  </div>
                 </div>
-                <button>
-                  <img src={AddCommentIcon} alt="comment-icon" />
+                <button className="video__comment-btn">
+                  {/* <img src={AddCommentIcon} alt="comment-icon" /> */}
                   COMMENT
                 </button>
               </div>

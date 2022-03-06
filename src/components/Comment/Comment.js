@@ -1,5 +1,5 @@
 import React from "react";
-import AvatarComponents from "../Avatar";
+import AvatarComponents from "../avatar/Avatar";
 import "./comment.scss";
 class Comment extends React.Component {
   daysAgo(rawData) {
@@ -34,7 +34,7 @@ class Comment extends React.Component {
       return (
         <div className="comment row flex" key={index}>
           <div className="comment__avatar">
-            <AvatarComponents />
+            <span className="comment__avatar-circle"></span>
           </div>
           <div className="comment__content">
             <div className="comment__name-timestamp flex">

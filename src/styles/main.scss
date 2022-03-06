@@ -2,6 +2,7 @@
 @use "./partials/mainContent" as *;
 @use "./partials/avatar" as *;
 @use "./partials/variables" as *;
+@use "../pages/UploadPage/UploadPage.scss" as *;
 
 html,
 body {

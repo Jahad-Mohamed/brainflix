@@ -6,26 +6,20 @@ class Video extends Component {
   render() {
     return (
       <div className="video__container" key={this.props.id}>
-        <div className="img-container">
-          <img
-            className="video__image"
-            src={this.props.thumbnail}
-            alt={this.props.title}
-            width="140"
-            height="100"
-          />
+        <div>
+          <Link to={{ pathname: `/videos/${this.props.id}` }}>
+            <img
+              className="video__image"
+              src={this.props.thumbnail}
+              alt={this.props.title}
+              width="140"
+              height="100"
+            />
+          </Link>
         </div>
         <div className="video__title-channel-container">
-          {/* ADDED LINK TO VIDEO */}
-          <Link to={{ pathname: `/${this.props.id}` }}>
-            <h5
-              className="card__title"
-              onClick={() => this.props.handleVideo(this.props.id)}
-            >
-              {this.props.title}
-            </h5>
-          </Link>
-          <p className="card__channel">{this.props.channel}</p>
+          <h4 className="video__title">{this.props.title}</h4>
+          <p className="video__channel">{this.props.channel}</p>
         </div>
       </div>
     );

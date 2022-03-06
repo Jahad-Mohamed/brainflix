@@ -4,45 +4,57 @@ import axios from "axios";
 import { GET_VIDEOS_API_URL, GET_VIDEO_INFO_API_URL } from "../api/endpoints";
 
 class MainContent extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      FirstVideo: [],
-      VideosDetailList: [],
-      comments: [],
-    };
-  }
-
-  handleVideo = (id) => {
-    let newVideo = this.state.VideosDetailList.find((val) => val.id === id);
-    axios.get(GET_VIDEO_INFO_API_URL(id)).then((res) => {
-      this.setState({ FirstVideo: res.data, comments: res.data.comments });
-    });
+  state = {
+    MainVideo: {},
+    VideosList: [],
+    comments: [],
   };
-
-  componentDidMount() {
-    console.log(this.props);
-    axios.get(GET_VIDEOS_API_URL()).then((res) => {
-      const videos = res.data;
+  async fetchData() {
+    await axios.get(GET_VIDEOS_API_URL()).then((response) => {
+      const videos = response.data;
       axios.get(GET_VIDEO_INFO_API_URL(videos[0].id)).then((video) => {
         this.setState({
-          FirstVideo: video.data,
-          VideosDetailList: videos,
+          MainVideo: video.data,
+          VideosList: videos,
           comments: video.data.comments,
         });
       });
     });
   }
 
+  componentDidMount() {
+    console.log("component Did mount");
+    this.fetchData();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      console.log("component did update");
+      console.log(prevProps.match.params.id);
+      console.log(this.props.match.params.id);
+      axios.get(GET_VIDEOS_API_URL()).then((response) => {
+        const videos = response.data;
+        axios
+          .get(GET_VIDEO_INFO_API_URL(this.props.match.params.id))
+          .then((video) => {
+            this.setState({
+              MainVideo: video.data,
+              VideosList: videos,
+              comments: video.data.comments,
+            });
+          });
+      });
+    }
+  }
+
   render() {
     return (
       <div>
         <VideoDetail
-          video={this.state.FirstVideo}
+          video={this.state.MainVideo}
           handleVideo={this.handleVideo}
           comments={this.state.comments}
-          videos={this.state.VideosDetailList}
+          videos={this.state.VideosList}
         />
       </div>
     );

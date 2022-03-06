@@ -3,7 +3,9 @@
 
 .video {
   justify-content: center;
-
+  &__full-container {
+    flex-direction: column;
+  }
   h1 {
     padding-left: 30px;
   }
@@ -12,9 +14,9 @@
     background-color: black;
   }
   &__details {
-    width: 70%;
-    @media screen and (max-width: 1024px) {
-      width: 100%;
+    width: 100%;
+    @include large {
+      width: 70%;
     }
   }
 
@@ -42,6 +44,7 @@
   }
 
   &__stats {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 30px;
@@ -56,24 +59,44 @@
   }
 
   &__views-likes {
+    display: flex;
     color: $BrainFlix-Sliver;
+    flex-direction: column;
+    @include medium {
+      flex-direction: row;
+    }
   }
 
   &__creator-date {
+    display: flex;
     align-items: center;
+    flex-direction: column;
+    @include medium {
+      flex-direction: row;
+    }
   }
 
   &__date {
     color: $BrainFlix-Sliver;
   }
 
+  &__comments-para {
+    margin: 0;
+  }
+
   &__comments {
+    padding: 0 1rem;
+    @include large {
+      padding: 0;
+    }
     p {
       margin: 0;
     }
   }
 
   &__comment-bar {
+    display: flex;
+    margin-bottom: 30px;
     justify-content: space-between;
     @media screen and (max-width: 768px) {
       flex-wrap: wrap;
@@ -83,53 +106,63 @@
     .avatar {
       margin-top: 30px;
     }
-
-    button {
-      color: white;
-      height: 50px;
-      background: $BrainFlix-Blue;
-      border: none;
-      border-radius: 5px;
-      margin-top: 30px;
-      margin-left: 25px;
-      @media screen and (max-width: 768px) {
-        // width: 10vw;
-        min-width: 200px;
-        width: 100%;
-      }
-    }
   }
-
-  &__input-comment {
-    p {
-      font-weight: bold;
-      color: $BrainFlix-Sliver;
-      text-transform: uppercase;
-    }
-
-    input {
-      height: 50px;
-      width: 35vw;
-      border: 1px solid $BrainFlix-Sliver;
-      border-radius: 5px;
-      padding: 10px;
-      @media screen and (max-width: 768px) {
-        height: 9.375rem;
-      }
-      @media screen and (max-width: 1024px) {
-        width: 30vw;
-      }
-    }
-  }
-  button {
+  &__avatar-input {
     display: flex;
-    /* justify-content: center; */
+    width: 100%;
+    @include medium {
+      align-items: center;
+    }
+  }
+  &__input-comment {
+    width: 100%;
+    @include medium {
+    }
+  }
+  &__comments-para {
+    font-weight: bold;
+    color: $BrainFlix-Sliver;
+    text-transform: uppercase;
+  }
+  &__input-field {
+    height: 50px;
+    width: 100%;
+    border: 1px solid $BrainFlix-Sliver;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  &__comment-btn {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    margin-right: 2rem;
+    padding: 20px 50px;
+    color: white;
+    height: 50px;
+    background: $BrainFlix-Blue;
+    border: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 64px;
+    width: 100%;
+
+    background-image: url("../../assets/Icons/add_comment.svg") !important;
+    background-repeat: no-repeat !important;
+    background-size: 25px !important;
+    background-position: left !important;
+    background-position-x: 1rem !important ;
+    @include medium {
+      margin-left: 25px;
+      width: unset;
+    }
   }
 
   &__sec-Video {
-    padding-left: 30px;
-    border-left: 1px solid $BrainFlix-Sliver;
+    padding-left: 16px;
+    @include large {
+      padding-left: 30px;
+      border-left: 1px solid $BrainFlix-Sliver;
+    }
   }
   &__next-title {
     color: $BrainFlix-Sliver;
@@ -145,23 +178,21 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@include medium {
   .video {
     &__full-container {
+      display: flex;
       flex-direction: column;
       margin: 0%;
-    }
-    &__input-comment {
-      input {
-        width: 85vw;
-      }
     }
   }
 }
 
-@media screen and (min-width: 1024px) {
+@include large {
   .video {
     &__full-container {
+      display: flex;
+      flex-direction: row;
       margin: 0px 8%;
     }
   }

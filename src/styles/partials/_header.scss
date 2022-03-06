@@ -9,20 +9,27 @@
   flex-direction: column;
   width: 100%;
   padding: 1rem 0rem 1rem 1rem;
+  border-bottom: 1px solid #afafaf;
   @include medium {
     flex-direction: row;
     width: 100vw;
-    height: 10vh;
     justify-content: space-between;
     align-items: center;
     padding: 0rem 2rem;
+  }
+  @include large {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  &__logo-link {
+    display: flex;
   }
 
   &__logo {
     height: 1.563rem;
     width: 100%;
     @include medium {
-      width: 40%;
+      // width: 40%;
     }
   }
   &__container-search-upload-avatar {
@@ -38,6 +45,7 @@
     margin: 1rem 0rem;
     width: 100%;
     justify-content: flex-end;
+    margin-right: 20px;
   }
 
   &__mobile-avatar {
@@ -64,23 +72,23 @@
       margin: 1rem;
     }
   }
+  &__upload-link {
+    text-decoration: none;
+  }
   &__button {
     background-color: $BrainFlix-Blue;
     color: $BrainFlix-White;
     border: none;
-    border-radius: 0.16rem;
+    border-radius: 0.26rem;
     display: flex;
     justify-content: center;
     width: 98%;
-    height: 2.25rem;
+    padding: 10px 40px;
     align-items: center;
     background-image: url("../../assets/Icons/upload.svg");
     background-repeat: no-repeat;
     background-size: 25px;
     background-position: left;
-    @include medium {
-      margin-left: 1rem;
-    }
   }
 }
 
@@ -96,6 +104,8 @@
   background-repeat: no-repeat;
   background-size: 20px;
   background-position: left;
+  background-position-x: 1rem;
+
   @include medium {
     width: 20vw;
   }
