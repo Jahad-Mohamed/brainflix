@@ -66,6 +66,9 @@
     background-repeat: no-repeat;
     background-size: 25px;
     background-position: left;
+    @include medium {
+      width: 13vw;
+    }
   }
   &__cancel-button {
     height: 3.25rem;
@@ -76,6 +79,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @include medium {
+      width: 13vw;
+    }
   }
   &__input-title {
     color: $BrainFlix-DarkBlack;
@@ -85,7 +91,7 @@
     height: 2rem;
     padding: 0rem 0.6rem;
     @include large {
-      width: 25%;
+      width: 49vw;
     }
   }
   &__input-description {
@@ -96,7 +102,8 @@
     height: 8rem;
     padding: 0rem 0.6rem;
     @include large {
-      width: 250%;
+      width: 49vw;
+      height: 15vh;
     }
   }
   &__desktop-whole-container {

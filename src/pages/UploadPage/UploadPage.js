@@ -7,7 +7,7 @@ export default function UploadPage() {
     <div className="Upload__page">
       <h1 className=" Upload__main-title">Upload Video</h1>
 
-      <form className="Upload__form" /*onSubmit={handleSubmit}*/>
+      <form className="Upload__form">
         <div className="Upload__desktop-whole-container">
           <div className="Upload__form-section">
             <label className="Upload__subtitle">UPLOAD THUMBNAIL</label>
