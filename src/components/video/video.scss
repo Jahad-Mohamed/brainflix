@@ -1,43 +1,49 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .video {
   &__container {
-    width: 95%;
-    height: 10%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
+    margin-bottom: 20px;
+    width: 100%;
+    @include medium {
+      width: 50%;
+    }
+
+    @include large {
+      width: 95%;
+      height: 10%;
+    }
   }
 
   &__title-channel-container {
     margin-left: 1rem;
-    h5 {
-      // margin-top: 0;
-      margin-bottom: 5px;
-    }
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
   }
 
   &__image {
-    margin-top: 1rem;
     border-radius: 10%;
     overflow: hidden;
   }
 
   &__title {
-    font-size: 0.75rem;
-    height: 100%;
     width: 100%;
-    // color: $BrainFlix-Black;
     margin: 0rem;
+    @include large {
+      width: 70%;
+    }
+    @include medium {
+      width: 65%;
+    }
   }
 
   &__channel {
-    // color: $BrainFlix-Black;
     margin: 0rem;
-    height: 100%;
     width: 100%;
-  }
-
-  @media only screen and (min-width: 1024px) {
   }
 }

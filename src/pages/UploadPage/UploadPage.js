@@ -3,7 +3,7 @@ import Thumbnail from "../../assets/Images/Upload-video-preview.jpg";
 
 export default function UploadPage() {
   return (
-    <>
+    <div className="Upload__page">
       <h1 className=" Upload__main-title">Upload Video</h1>
 
       <form className="Upload__form" /*onSubmit={handleSubmit}*/>
@@ -48,6 +48,6 @@ export default function UploadPage() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

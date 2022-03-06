@@ -3,7 +3,9 @@
 
 .video {
   justify-content: center;
-
+  &__full-container {
+    flex-direction: column;
+  }
   h1 {
     padding-left: 30px;
   }
@@ -137,8 +139,11 @@
   }
 
   &__sec-Video {
-    padding-left: 30px;
-    border-left: 1px solid $BrainFlix-Sliver;
+    padding-left: 16px;
+    @include large {
+      padding-left: 30px;
+      border-left: 1px solid $BrainFlix-Sliver;
+    }
   }
   &__next-title {
     color: $BrainFlix-Sliver;
@@ -154,7 +159,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@include medium {
   .video {
     &__full-container {
       flex-direction: column;
@@ -168,9 +173,10 @@
   }
 }
 
-@media screen and (min-width: 1024px) {
+@include large {
   .video {
     &__full-container {
+      flex-direction: row;
       margin: 0px 8%;
     }
   }
