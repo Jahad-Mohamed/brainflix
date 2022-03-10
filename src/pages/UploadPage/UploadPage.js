@@ -49,7 +49,7 @@ const UploadPage = () => {
 
   const handleImageClick = () => imageRef.current.click();
 
-  const redirectMeToHome = () => {
+  const redirectToHome = () => {
     if (redirect) {
       <Redirect to="/" />;
     }
@@ -57,7 +57,7 @@ const UploadPage = () => {
 
   return (
     <div className="Upload__page">
-      {redirectMeToHome()}
+      {redirectToHome()}
       <h1 className=" Upload__main-title">Upload Video</h1>
 
       <form className="Upload__form" onSubmit={handleSubmit}>
