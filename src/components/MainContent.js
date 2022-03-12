@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import VideoDetail from "../components/VideoDetails/VideoDetail";
 import axios from "axios";
-import { GET_VIDEOS_API_URL, GET_VIDEO_INFO_API_URL } from "../api/endpoints";
 
 class MainContent extends Component {
   state = {
@@ -9,41 +8,35 @@ class MainContent extends Component {
     VideosList: [],
     comments: [],
   };
+
   async fetchData() {
-    await axios.get(GET_VIDEOS_API_URL()).then((response) => {
+    try {
+      const response = await axios.get(`http://localhost:8080/videos`);
       const videos = response.data;
-      axios.get(GET_VIDEO_INFO_API_URL(videos[0].id)).then((video) => {
-        this.setState({
-          MainVideo: video.data,
-          VideosList: videos,
-          comments: video.data.comments,
-        });
+      this.fetchVideo(videos[0].id);
+      this.setState({
+        VideosList: videos,
       });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async fetchVideo(id) {
+    const video = await axios.get(`http://localhost:8080/videos/${id}`);
+    this.setState({
+      MainVideo: video.data,
+      comments: video.data.comments,
     });
   }
 
   componentDidMount() {
-    console.log("component Did mount");
     this.fetchData();
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      console.log("component did update");
-      console.log(prevProps.match.params.id);
-      console.log(this.props.match.params.id);
-      axios.get(GET_VIDEOS_API_URL()).then((response) => {
-        const videos = response.data;
-        axios
-          .get(GET_VIDEO_INFO_API_URL(this.props.match.params.id))
-          .then((video) => {
-            this.setState({
-              MainVideo: video.data,
-              VideosList: videos,
-              comments: video.data.comments,
-            });
-          });
-      });
+      this.fetchVideo(this.props.match.params.id);
     }
   }
 

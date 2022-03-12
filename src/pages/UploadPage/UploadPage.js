@@ -40,7 +40,7 @@ const UploadPage = () => {
         img,
       });
 
-      console.log("success");
+      alert("Video added!")
       setRedirect(true);
     } catch (err) {
       console.log(err);
@@ -51,7 +51,7 @@ const UploadPage = () => {
 
   const redirectToHome = () => {
     if (redirect) {
-      <Redirect to="/" />;
+      return <Redirect to="/" />;
     }
   };
 

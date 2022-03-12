@@ -7,23 +7,41 @@
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    margin-bottom: 20px;
+
     width: 100%;
+
+    .video-image-container {
+      width: 140px;
+      height: 100px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
     @include medium {
       width: 50%;
+      margin-bottom: 20px !important;
     }
 
     @include large {
       width: 95%;
-      height: 10%;
+      // height: 10%;
     }
   }
 
   &__title-channel-container {
     margin-left: 1rem;
     display: flex;
+    flex: 1;
     justify-content: space-between;
     flex-direction: column;
+
+    span {
+      width: "100%";
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: 600;
+    }
   }
 
   &__image {
