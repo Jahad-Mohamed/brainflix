@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import UploadPage from "./pages/UploadPage/UploadPage";
-import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (

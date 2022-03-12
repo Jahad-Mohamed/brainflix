@@ -4,16 +4,9 @@ import "./VideoDetail.scss";
 import Comment from "../Comment/Comment";
 import likeIcon from "../../assets/Icons/likes.svg";
 import viewIcon from "../../assets/Icons/views.svg";
-import AddCommentIcon from "../../assets/Icons/add_comment.svg";
 import Avatar from "../avatar/Avatar";
-import axios from "axios";
-import { GET_VIDEO_INFO_API_URL } from "../../api/endpoints";
 
 class VideoDetail extends React.Component {
-  state = {
-    comments: [],
-  };
-
   daysAgo(rawData) {
     let difference = new Date().getTime() - new Date(rawData).getTime();
     let miliseconds = difference;
@@ -38,50 +31,43 @@ class VideoDetail extends React.Component {
     return message;
   }
 
-  componentDidMount() {
-    axios.get(GET_VIDEO_INFO_API_URL(this.props.video.id)).then((response) => {
-      this.setState({ comments: response.data.comments });
-    });
-  }
   render() {
+    const { video, videos, handleVideo, comments } = this.props;
+
     return (
       <div className="video">
         <div className="video__block">
           <div className="video__img">
-            <video controls poster={this.props.video.image}>
-              <source src={this.props.video.video} type="video/mp4" />
-              <source src={this.props.video.video} type="video/webm"></source>
+            <video controls poster={video.image}>
+              <source src={video.video} type="video/mp4" />
+              <source src={video.video} type="video/webm"></source>
             </video>
           </div>
         </div>
         <div className="video__full-container">
           <div className="video__details">
-            <h1>{this.props.video.title}</h1>
+            <h1>{video.title}</h1>
             <div className="video__stats">
               <div className="video__creator-date">
-                <h2>By {this.props.video.channel}</h2>
-                <p className="video__date">
-                  {this.daysAgo(this.props.video.timestamp)}
-                </p>
+                <h2>By {video.channel}</h2>
+                <p className="video__date">{this.daysAgo(video.timestamp)}</p>
               </div>
               <div className="video__views-likes">
                 <div className="video__views-icon flex">
                   <img src={viewIcon} alt="like-icon" />
 
-                  <p>{this.props.video.views}</p>
+                  <p>{video.views}</p>
                 </div>
                 <div className="video__like-icon flex">
                   <img src={likeIcon} alt="like-icon" />
-                  <p>{this.props.video.likes}</p>
+                  <p>{video.likes}</p>
                 </div>
               </div>
             </div>
-            <div className="video__description">
-              {this.props.video.description}
-            </div>
+            <div className="video__description">{video.description}</div>
             <div className="video__comments">
               <div className="video__comments-length">
-                <h3>{`${this.props.comments.length} Comments`}</h3>
+                <h3>{`${comments.length} Comments`}</h3>
               </div>
               <div className="video__comment-bar">
                 <div className="video__avatar-input">
@@ -102,13 +88,13 @@ class VideoDetail extends React.Component {
                   COMMENT
                 </button>
               </div>
-              <Comment comments={this.props.comments} />
+              <Comment comments={comments} />
             </div>
           </div>
           <div className="video__sec-Video col-5">
             <h4 className="video__next-title">NEXT VIDEOS</h4>
-            {this.props.videos
-              .filter((videoslist) => videoslist.id !== this.props.video.id)
+            {videos
+              .filter((videoslist) => videoslist.id !== video.id)
               .map((video) => {
                 return (
                   <Video
@@ -116,7 +102,7 @@ class VideoDetail extends React.Component {
                     thumbnail={video.image}
                     title={video.title}
                     channel={video.channel}
-                    handleVideo={this.props.handleVideo}
+                    handleVideo={handleVideo}
                   />
                 );
               })}

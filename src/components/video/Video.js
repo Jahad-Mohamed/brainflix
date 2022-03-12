@@ -4,20 +4,17 @@ import "./video.scss";
 
 class Video extends Component {
   render() {
+    const { id, thumbnail, title, channel } = this.props;
     return (
-      <div className="video__container" key={this.props.id}>
+      <div className="video__container" key={id}>
         <div className="video-image-container">
-          <Link to={{ pathname: `/videos/${this.props.id}` }}>
-            <img
-              className="video__image"
-              src={this.props.thumbnail}
-              alt={this.props.title}
-            />
+          <Link to={{ pathname: `/videos/${id}` }}>
+            <img className="video__image" src={thumbnail} alt={title} />
           </Link>
         </div>
         <div className="video__title-channel-container">
-          <span className="video__title">{this.props.title}</span>
-          <p className="video__channel">{this.props.channel}</p>
+          <span className="video__title">{title}</span>
+          <p className="video__channel">{channel}</p>
         </div>
       </div>
     );

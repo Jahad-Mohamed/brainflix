@@ -1,0 +1,34 @@
+/* media query for mobile */
+/* media query for tablet */
+/* media query for landscape, medium pixel density desktops */
+.row {
+  width: 100%;
+}
+
+.comment {
+  margin-bottom: 20px;
+  padding: 20px;
+  padding-left: 0;
+  border-top: 1px solid #afafaf;
+}
+.comment p {
+  margin: 3px;
+  color: #afafaf;
+}
+.comment__avatar-circle {
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.comment__content h4 {
+  margin-top: 0%;
+  margin-bottom: 5px;
+  color: #323232;
+}
+.comment__name-timestamp {
+  justify-content: space-between;
+}/*# sourceMappingURL=comment.css.map */
