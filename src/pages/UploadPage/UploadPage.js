@@ -31,7 +31,7 @@ const UploadPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !description || !img)
-      return alert("Please fill the form correctly!");
+      return alert("Please fill in the form!");
 
     try {
       await axios.post(`http://localhost:8080/videos`, {
@@ -40,7 +40,7 @@ const UploadPage = () => {
         img,
       });
 
-      alert("Video added!")
+      alert("Video added!");
       setRedirect(true);
     } catch (err) {
       console.log(err);
